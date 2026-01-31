@@ -48,7 +48,7 @@ export default async function OrdersPage() {
       </div>
 
       <div className="space-y-4">
-        {orders.map((order) => {
+        {orders.map((order: { _id: string; orderNumber?: string; total?: number; status?: string; createdAt?: string; itemCount?: number; itemNames?: (string | null)[]; itemImages?: (string | null)[] }) => {
           const status = getOrderStatus(order.status);
           const StatusIcon = status.icon;
           const images = (order.itemImages ?? []).filter(

@@ -92,7 +92,7 @@ export default async function HomePage({ searchParams }: PageProps) {
 
       {/* Page Banner */}
       <div className="border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
-        <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 sm:pt-8 lg:px-8">
+        <div className="w-full px-4 pt-6 sm:px-6 sm:pt-8 lg:px-8">
           <h1 className="text-xl font-bold tracking-tight text-zinc-900 sm:text-2xl dark:text-zinc-100">
             Shop {categorySlug ? categorySlug : "All Products"}
           </h1>
@@ -110,7 +110,7 @@ export default async function HomePage({ searchParams }: PageProps) {
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="w-full px-4 py-8 sm:px-6 lg:px-8">
         <ProductSection
           categories={categories}
           products={products}
