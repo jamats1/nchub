@@ -3,8 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Search, Menu, Package, ShoppingBag, Sparkles, User, X } from "lucide-react";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { Search, Menu, Package, ShoppingBag, Sparkles, X } from "lucide-react";
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { useCartActions, useTotalItems } from "@/lib/store/cart-store-provider";
 import { useChatActions, useIsChatOpen } from "@/lib/store/chat-store-provider";
@@ -89,10 +89,15 @@ export function Header() {
             </SignedIn>
             <SignedOut>
               <SignInButton mode="modal">
-                <Button variant="ghost" size="icon" aria-label="Sign in">
-                  <User className="h-5 w-5" />
+                <Button variant="ghost" size="sm" className="shrink-0 text-xs" aria-label="Sign in">
+                  Sign in
                 </Button>
               </SignInButton>
+              <SignUpButton mode="modal">
+                <Button variant="default" size="sm" className="shrink-0 text-xs" aria-label="Sign up">
+                  Sign up
+                </Button>
+              </SignUpButton>
             </SignedOut>
             <button
               type="button"
@@ -186,10 +191,15 @@ export function Header() {
             </SignedIn>
             <SignedOut>
               <SignInButton mode="modal">
-                <Button variant="ghost" size="icon" aria-label="Sign in">
-                  <User className="h-5 w-5" />
+                <Button variant="ghost" size="sm" aria-label="Sign in">
+                  Sign in
                 </Button>
               </SignInButton>
+              <SignUpButton mode="modal">
+                <Button variant="default" size="sm" aria-label="Sign up">
+                  Sign up
+                </Button>
+              </SignUpButton>
             </SignedOut>
           </div>
         </div>
