@@ -8,86 +8,86 @@ import {
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-accent py-8 sm:py-12" style={{ paddingBottom: "max(2rem, env(safe-area-inset-bottom))" }}>
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
+    <footer className="border-t border-border bg-accent py-6 sm:py-8" style={{ paddingBottom: "max(1.5rem, env(safe-area-inset-bottom))" }}>
+      <div className="w-full px-4 sm:px-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
           {/* About section */}
-          <div className="lg:col-span-2">
-            <h3 className="mb-4 text-lg font-medium">About NCHUB</h3>
-            <p className="mb-4 text-sm text-muted-foreground">
+          <div className="min-w-0">
+            <h3 className="mb-2 text-sm font-medium">About NCHUB</h3>
+            <p className="mb-3 text-xs leading-snug text-muted-foreground">
               Your trusted source for quality products. Shop anything with
               intelligent search, real-time stock, and AI-powered shopping
               assistance.
             </p>
 
             {/* Payment methods */}
-            <div className="mt-6">
-              <p className="mb-2 text-sm font-medium">Payment Methods</p>
-              <div className="flex flex-wrap items-center gap-2">
+            <div className="mt-4">
+              <p className="mb-1.5 text-xs font-medium">Payment Methods</p>
+              <div className="flex flex-wrap items-center gap-1">
                 {Object.entries(PaymentIconsWithFallbacks).map(([key, icon]) => (
                   <SvgIcon
                     key={key}
                     src={icon.src}
                     fallbackSrc={icon.fallbackSrc}
                     alt={icon.alt}
-                    width={40}
-                    height={26}
-                    className="rounded border border-zinc-200 bg-white p-1 dark:border-zinc-700"
+                    width={28}
+                    height={18}
+                    className="rounded border border-zinc-200 bg-white p-0.5 dark:border-zinc-700"
                   />
                 ))}
               </div>
             </div>
 
             {/* Partner logos */}
-            <div className="mt-6">
-              <p className="mb-2 text-sm font-medium">Our Partners</p>
-              <div className="flex flex-wrap items-center gap-3">
+            <div className="mt-4">
+              <p className="mb-1.5 text-xs font-medium">Our Partners</p>
+              <div className="flex flex-wrap items-center gap-1.5">
                 <SvgIcon
                   src={PARTNER_ICONS.partner1}
                   fallbackSrc={PARTNER_ICONS.partner1Fallback}
                   alt="Partner 1"
-                  height={30}
-                  className="max-w-[80px] opacity-70 transition-opacity hover:opacity-100"
+                  height={22}
+                  className="max-w-[52px] opacity-70 transition-opacity hover:opacity-100"
                 />
                 <SvgIcon
                   src={PARTNER_ICONS.partner2}
                   fallbackSrc={PARTNER_ICONS.partner2Fallback}
                   alt="Partner 2"
-                  height={30}
-                  className="max-w-[80px] opacity-70 transition-opacity hover:opacity-100"
+                  height={22}
+                  className="max-w-[52px] opacity-70 transition-opacity hover:opacity-100"
                 />
                 <SvgIcon
                   src={PARTNER_ICONS.dewalt}
                   fallbackSrc={PARTNER_ICONS.dewaltFallback}
                   alt="Dewalt"
-                  height={30}
-                  className="max-w-[80px] opacity-70 transition-opacity hover:opacity-100"
+                  height={22}
+                  className="max-w-[52px] opacity-70 transition-opacity hover:opacity-100"
                 />
                 <SvgIcon
                   src={PARTNER_ICONS.amazon}
                   fallbackSrc={PARTNER_ICONS.amazonFallback}
                   alt="Amazon"
-                  height={24}
-                  className="max-w-[70px] opacity-70 transition-opacity hover:opacity-100"
+                  height={18}
+                  className="max-w-[44px] opacity-70 transition-opacity hover:opacity-100"
                 />
                 <SvgIcon
                   src={PARTNER_ICONS.coastline}
                   fallbackSrc={PARTNER_ICONS.coastlineFallback}
                   alt="Coastline"
-                  height={30}
-                  className="max-w-[80px] opacity-70 transition-opacity hover:opacity-100"
+                  height={22}
+                  className="max-w-[52px] opacity-70 transition-opacity hover:opacity-100"
                 />
               </div>
-              <p className="mt-2 text-xs text-muted-foreground">
+              <p className="mt-1 text-[10px] text-muted-foreground">
                 Trusted by leading companies worldwide
               </p>
             </div>
           </div>
 
           {/* Shop links */}
-          <div>
-            <h3 className="mb-4 text-lg font-medium">Shop</h3>
-            <ul className="space-y-2 text-sm">
+          <div className="min-w-0">
+            <h3 className="mb-2 text-sm font-medium">Shop</h3>
+            <ul className="space-y-1 text-xs">
               <li>
                 <Link
                   href="/"
@@ -140,9 +140,9 @@ export function Footer() {
           </div>
 
           {/* Customer Service links */}
-          <div>
-            <h3 className="mb-4 text-lg font-medium">Customer Service</h3>
-            <ul className="space-y-2 text-sm">
+          <div className="min-w-0">
+            <h3 className="mb-2 text-sm font-medium">Customer Service</h3>
+            <ul className="space-y-1 text-xs">
               <li>
                 <Link
                   href="/contact"
@@ -179,46 +179,46 @@ export function Footer() {
           </div>
 
           {/* Newsletter signup */}
-          <div>
-            <h3 className="mb-4 text-lg font-medium">Newsletter</h3>
-            <p className="mb-4 text-sm text-muted-foreground">
+          <div className="min-w-0">
+            <h3 className="mb-2 text-sm font-medium">Newsletter</h3>
+            <p className="mb-3 text-xs text-muted-foreground">
               Subscribe for updates, news, and exclusive offers.
             </p>
 
             <form
               action="/newsletter/subscribe"
               method="post"
-              className="space-y-3"
+              className="space-y-2"
             >
               <input
                 type="email"
                 name="email"
-                placeholder="Your email address"
-                className="w-full rounded border border-border bg-background px-4 py-3 text-base focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                placeholder="Your email"
+                className="w-full rounded border border-border bg-background px-3 py-2 text-xs focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                 required
               />
               <button
                 type="submit"
-                className="w-full min-h-[44px] rounded bg-primary px-4 py-3 text-base font-medium text-primary-foreground transition-colors hover:bg-primary/90 active:bg-primary/95"
+                className="w-full min-h-[36px] rounded bg-primary px-3 py-2 text-xs font-medium text-primary-foreground transition-colors hover:bg-primary/90 active:bg-primary/95"
               >
                 Subscribe
               </button>
             </form>
 
-            {/* Social links - 44px touch targets */}
-            <div className="mt-6">
-              <p className="mb-2 text-sm font-medium">Follow Us</p>
-              <div className="flex gap-2">
+            {/* Social links */}
+            <div className="mt-4">
+              <p className="mb-1.5 text-xs font-medium">Follow Us</p>
+              <div className="flex gap-1">
                 <a
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-primary active:bg-muted"
+                  className="flex min-h-[32px] min-w-[32px] items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-primary active:bg-muted"
                   aria-label="Facebook"
                 >
                   <SvgIcon
                     icon={<InlineSocialIcons.Facebook />}
-                    className="h-5 w-5"
+                    className="h-4 w-4"
                     title="Facebook"
                   />
                 </a>
@@ -226,12 +226,12 @@ export function Footer() {
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-primary active:bg-muted"
+                  className="flex min-h-[32px] min-w-[32px] items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-primary active:bg-muted"
                   aria-label="Instagram"
                 >
                   <SvgIcon
                     icon={<InlineSocialIcons.Instagram />}
-                    className="h-5 w-5"
+                    className="h-4 w-4"
                     title="Instagram"
                   />
                 </a>
@@ -239,12 +239,12 @@ export function Footer() {
                   href="https://twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-primary active:bg-muted"
+                  className="flex min-h-[32px] min-w-[32px] items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-primary active:bg-muted"
                   aria-label="Twitter"
                 >
                   <SvgIcon
                     icon={<InlineSocialIcons.Twitter />}
-                    className="h-5 w-5"
+                    className="h-4 w-4"
                     title="Twitter"
                   />
                 </a>
@@ -252,12 +252,12 @@ export function Footer() {
                   href="https://youtube.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-primary active:bg-muted"
+                  className="flex min-h-[32px] min-w-[32px] items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-primary active:bg-muted"
                   aria-label="YouTube"
                 >
                   <SvgIcon
                     icon={<InlineSocialIcons.YouTube />}
-                    className="h-5 w-5"
+                    className="h-4 w-4"
                     title="YouTube"
                   />
                 </a>
@@ -267,13 +267,13 @@ export function Footer() {
         </div>
 
         {/* Copyright section */}
-        <div className="mt-12 border-t border-border pt-8">
-          <div className="flex flex-col items-center space-y-4 md:flex-row md:justify-between md:space-y-0">
-            <p className="text-sm text-muted-foreground">
+        <div className="mt-8 border-t border-border pt-6">
+          <div className="flex flex-col items-center space-y-3 md:flex-row md:justify-between md:space-y-0">
+            <p className="text-xs text-muted-foreground">
               &copy; {new Date().getFullYear()} NCHUB. All rights reserved.
             </p>
 
-            <ul className="flex space-x-6 text-sm">
+            <ul className="flex space-x-4 text-xs">
               <li>
                 <Link
                   href="/terms"
@@ -294,37 +294,37 @@ export function Footer() {
           </div>
 
           {/* Additional partners */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-            <span className="text-xs text-muted-foreground">
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
+            <span className="text-[10px] text-muted-foreground">
               In partnership with:
             </span>
             <SvgIcon
               src={PARTNER_ICONS.tsmc}
               fallbackSrc={PARTNER_ICONS.tsmcFallback}
               alt="TSMC"
-              height={20}
-              className="max-w-[60px] opacity-70 transition-opacity hover:opacity-100"
+              height={16}
+              className="max-w-[44px] opacity-70 transition-opacity hover:opacity-100"
             />
             <SvgIcon
               src={PARTNER_ICONS.formedFiber}
               fallbackSrc={PARTNER_ICONS.formedFiberFallback}
               alt="Formed Fiber"
-              height={20}
-              className="max-w-[60px] opacity-70 transition-opacity hover:opacity-100"
+              height={16}
+              className="max-w-[44px] opacity-70 transition-opacity hover:opacity-100"
             />
             <SvgIcon
               src={PARTNER_ICONS.eiffage}
               fallbackSrc={PARTNER_ICONS.eiffageFallback}
               alt="Eiffage"
-              height={20}
-              className="max-w-[60px] opacity-70 transition-opacity hover:opacity-100"
+              height={16}
+              className="max-w-[44px] opacity-70 transition-opacity hover:opacity-100"
             />
             <SvgIcon
               src={PARTNER_ICONS.construtora}
               fallbackSrc={PARTNER_ICONS.construtoraFallback}
               alt="Construtora"
-              height={20}
-              className="max-w-[60px] opacity-70 transition-opacity hover:opacity-100"
+              height={16}
+              className="max-w-[44px] opacity-70 transition-opacity hover:opacity-100"
             />
           </div>
         </div>
