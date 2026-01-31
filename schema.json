@@ -360,7 +360,15 @@
             },
             {
               "type": "string",
+              "value": "plastic"
+            },
+            {
+              "type": "string",
               "value": "fabric"
+            },
+            {
+              "type": "string",
+              "value": "cotton"
             },
             {
               "type": "string",
@@ -369,6 +377,10 @@
             {
               "type": "string",
               "value": "glass"
+            },
+            {
+              "type": "string",
+              "value": "ceramic"
             }
           ]
         },
@@ -389,15 +401,27 @@
             },
             {
               "type": "string",
+              "value": "grey"
+            },
+            {
+              "type": "string",
+              "value": "red"
+            },
+            {
+              "type": "string",
+              "value": "blue"
+            },
+            {
+              "type": "string",
+              "value": "green"
+            },
+            {
+              "type": "string",
               "value": "oak"
             },
             {
               "type": "string",
               "value": "walnut"
-            },
-            {
-              "type": "string",
-              "value": "grey"
             },
             {
               "type": "string",

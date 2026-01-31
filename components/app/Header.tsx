@@ -1,14 +1,20 @@
 "use client";
 
-import Link from "next/link";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/nextjs";
+import { Menu, Package, Search, ShoppingBag, Sparkles, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Search, Menu, Package, ShoppingBag, Sparkles, X } from "lucide-react";
-import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useCartActions, useTotalItems } from "@/lib/store/cart-store-provider";
 import { useChatActions, useIsChatOpen } from "@/lib/store/chat-store-provider";
-import { useState } from "react";
 
 export function Header() {
   const router = useRouter();
@@ -89,12 +95,22 @@ export function Header() {
             </SignedIn>
             <SignedOut>
               <SignInButton mode="modal">
-                <Button variant="ghost" size="sm" className="shrink-0 text-xs" aria-label="Sign in">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="shrink-0 text-xs"
+                  aria-label="Sign in"
+                >
                   Sign in
                 </Button>
               </SignInButton>
               <SignUpButton mode="modal">
-                <Button variant="default" size="sm" className="shrink-0 text-xs" aria-label="Sign up">
+                <Button
+                  variant="default"
+                  size="sm"
+                  className="shrink-0 text-xs"
+                  aria-label="Sign up"
+                >
                   Sign up
                 </Button>
               </SignUpButton>
@@ -207,7 +223,10 @@ export function Header() {
         {/* Mobile menu */}
         {mobileMenuOpen && (
           <div className="mt-4 md:hidden">
-            <nav className="border-t border-border pt-4" aria-label="Mobile menu">
+            <nav
+              className="border-t border-border pt-4"
+              aria-label="Mobile menu"
+            >
               <form onSubmit={handleSearch} className="mb-4">
                 <div className="relative">
                   <input

@@ -1,4 +1,4 @@
-import { Sparkles, Package, Search } from "lucide-react";
+import { Package, Search, Sparkles } from "lucide-react";
 
 interface WelcomeScreenProps {
   onSuggestionClick: (message: { text: string }) => void;
@@ -64,12 +64,12 @@ export function WelcomeScreen({
           </div>
           <div className="flex flex-wrap justify-center gap-2">
             {orderSuggestions.map((suggestion) => (
-            <button
-              key={suggestion}
-              type="button"
-              onClick={() => onSuggestionClick({ text: suggestion })}
-              className="min-h-[44px] rounded-full border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-700 transition-colors touch-manipulation hover:bg-amber-100 active:bg-amber-200 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-300 dark:hover:bg-amber-900/40 dark:active:bg-amber-900/50"
-            >
+              <button
+                key={suggestion}
+                type="button"
+                onClick={() => onSuggestionClick({ text: suggestion })}
+                className="min-h-[44px] rounded-full border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-700 transition-colors touch-manipulation hover:bg-amber-100 active:bg-amber-200 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-300 dark:hover:bg-amber-900/40 dark:active:bg-amber-900/50"
+              >
                 {suggestion}
               </button>
             ))}

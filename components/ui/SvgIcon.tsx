@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import type React from "react";
+import { useEffect, useState } from "react";
 
 type IconProps = {
   src?: string;
@@ -71,8 +72,18 @@ export function SvgIcon({
             display: "inline-flex",
             alignItems: "center",
             justifyContent: "center",
-            width: width !== undefined ? (typeof width === "number" ? `${width}px` : width) : undefined,
-            height: height !== undefined ? (typeof height === "number" ? `${height}px` : height) : undefined,
+            width:
+              width !== undefined
+                ? typeof width === "number"
+                  ? `${width}px`
+                  : width
+                : undefined,
+            height:
+              height !== undefined
+                ? typeof height === "number"
+                  ? `${height}px`
+                  : height
+                : undefined,
             fontSize: "10px",
             fontWeight: "bold",
             backgroundColor: "#f3f4f6",
@@ -108,8 +119,18 @@ export function SvgIcon({
       className={className}
       style={{
         display: "inline-flex",
-        width: width !== undefined ? (typeof width === "number" ? `${width}px` : width) : undefined,
-        height: height !== undefined ? (typeof height === "number" ? `${height}px` : height) : undefined,
+        width:
+          width !== undefined
+            ? typeof width === "number"
+              ? `${width}px`
+              : width
+            : undefined,
+        height:
+          height !== undefined
+            ? typeof height === "number"
+              ? `${height}px`
+              : height
+            : undefined,
       }}
       title={title}
       role={title ? "img" : undefined}

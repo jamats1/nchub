@@ -1,14 +1,17 @@
 import Link from "next/link";
-import { SvgIcon } from "@/components/ui/SvgIcon";
 import {
-  PaymentIconsWithFallbacks,
-  PARTNER_ICONS,
   InlineSocialIcons,
+  PARTNER_ICONS,
+  PaymentIconsWithFallbacks,
 } from "@/components/ui/icons";
+import { SvgIcon } from "@/components/ui/SvgIcon";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-accent py-6 sm:py-8" style={{ paddingBottom: "max(1.5rem, env(safe-area-inset-bottom))" }}>
+    <footer
+      className="border-t border-border bg-accent py-6 sm:py-8"
+      style={{ paddingBottom: "max(1.5rem, env(safe-area-inset-bottom))" }}
+    >
       <div className="w-full px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
           {/* About section */}
@@ -24,17 +27,19 @@ export function Footer() {
             <div className="mt-4">
               <p className="mb-1.5 text-xs font-medium">Payment Methods</p>
               <div className="flex flex-wrap items-center gap-1">
-                {Object.entries(PaymentIconsWithFallbacks).map(([key, icon]) => (
-                  <SvgIcon
-                    key={key}
-                    src={icon.src}
-                    fallbackSrc={icon.fallbackSrc}
-                    alt={icon.alt}
-                    width={28}
-                    height={18}
-                    className="rounded border border-zinc-200 bg-white p-0.5 dark:border-zinc-700"
-                  />
-                ))}
+                {Object.entries(PaymentIconsWithFallbacks).map(
+                  ([key, icon]) => (
+                    <SvgIcon
+                      key={key}
+                      src={icon.src}
+                      fallbackSrc={icon.fallbackSrc}
+                      alt={icon.alt}
+                      width={28}
+                      height={18}
+                      className="rounded border border-zinc-200 bg-white p-0.5 dark:border-zinc-700"
+                    />
+                  ),
+                )}
               </div>
             </div>
 

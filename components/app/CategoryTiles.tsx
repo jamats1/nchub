@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
 import { Grid2x2 } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import type { ALL_CATEGORIES_QUERYResult } from "@/sanity.types";
 
 interface CategoryTilesProps {
@@ -27,7 +27,7 @@ export function CategoryTiles({
               : "hover:ring-2 hover:ring-zinc-300 hover:ring-offset-2 dark:hover:ring-zinc-600 dark:hover:ring-offset-zinc-900"
           }`}
         >
-              <div className="relative h-28 w-44 sm:h-32 sm:w-56 md:h-56 md:w-80">
+          <div className="relative h-28 w-44 sm:h-32 sm:w-56 md:h-56 md:w-80">
             {/* Gradient background */}
             <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-zinc-900 dark:from-zinc-700 dark:to-zinc-800" />
 

@@ -1,13 +1,14 @@
-import { notFound } from "next/navigation";
-import Link from "next/link";
-import Image from "next/image";
 import { auth } from "@clerk/nextjs/server";
 import { ArrowLeft, CreditCard, MapPin } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
-import { sanityFetch } from "@/sanity/lib/live";
-import { ORDER_BY_ID_QUERY } from "@/lib/sanity/queries/orders";
 import { getOrderStatus } from "@/lib/constants/orderStatus";
-import { formatPrice, formatDate } from "@/lib/utils";
+import { ORDER_BY_ID_QUERY } from "@/lib/sanity/queries/orders";
+import { formatDate, formatPrice } from "@/lib/utils";
+import { sanityFetch } from "@/sanity/lib/live";
+import type { ORDER_BY_ID_QUERYResult } from "@/sanity.types";
 
 export const metadata = {
   title: "Order Details | NCHUB",
@@ -72,55 +73,61 @@ export default async function OrderDetailPage({ params }: OrderPageProps) {
               </h2>
             </div>
             <div className="divide-y divide-zinc-200 dark:divide-zinc-800">
-              {order.items?.map((item) => (
-                <div key={item._key} className="flex gap-4 px-6 py-4">
-                  {/* Image */}
-                  <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-md bg-zinc-100 dark:bg-zinc-800">
-                    {item.product?.image?.asset?.url ? (
-                      <Image
-                        src={item.product.image.asset.url}
-                        alt={item.product.name ?? "Product"}
-                        fill
-                        className="object-cover"
-                        sizes="80px"
-                      />
-                    ) : (
-                      <div className="flex h-full items-center justify-center text-xs text-zinc-400">
-                        No image
-                      </div>
-                    )}
-                  </div>
+              {order.items?.map(
+                (
+                  item: NonNullable<
+                    NonNullable<ORDER_BY_ID_QUERYResult>["items"]
+                  >[number],
+                ) => (
+                  <div key={item._key} className="flex gap-4 px-6 py-4">
+                    {/* Image */}
+                    <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-md bg-zinc-100 dark:bg-zinc-800">
+                      {item.product?.image?.asset?.url ? (
+                        <Image
+                          src={item.product.image.asset.url}
+                          alt={item.product.name ?? "Product"}
+                          fill
+                          className="object-cover"
+                          sizes="80px"
+                        />
+                      ) : (
+                        <div className="flex h-full items-center justify-center text-xs text-zinc-400">
+                          No image
+                        </div>
+                      )}
+                    </div>
 
-                  {/* Details */}
-                  <div className="flex flex-1 flex-col justify-between">
-                    <div>
-                      <Link
-                        href={`/products/${item.product?.slug}`}
-                        className="font-medium text-zinc-900 hover:text-zinc-600 dark:text-zinc-100 dark:hover:text-zinc-300"
-                      >
-                        {item.product?.name ?? "Unknown Product"}
-                      </Link>
-                      <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-                        Qty: {item.quantity}
+                    {/* Details */}
+                    <div className="flex flex-1 flex-col justify-between">
+                      <div>
+                        <Link
+                          href={`/products/${item.product?.slug}`}
+                          className="font-medium text-zinc-900 hover:text-zinc-600 dark:text-zinc-100 dark:hover:text-zinc-300"
+                        >
+                          {item.product?.name ?? "Unknown Product"}
+                        </Link>
+                        <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+                          Qty: {item.quantity}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Price */}
+                    <div className="text-right">
+                      <p className="font-medium text-zinc-900 dark:text-zinc-100">
+                        {formatPrice(
+                          (item.priceAtPurchase ?? 0) * (item.quantity ?? 1),
+                        )}
                       </p>
+                      {(item.quantity ?? 1) > 1 && (
+                        <p className="text-sm text-zinc-500">
+                          {formatPrice(item.priceAtPurchase)} each
+                        </p>
+                      )}
                     </div>
                   </div>
-
-                  {/* Price */}
-                  <div className="text-right">
-                    <p className="font-medium text-zinc-900 dark:text-zinc-100">
-                      {formatPrice(
-                        (item.priceAtPurchase ?? 0) * (item.quantity ?? 1),
-                      )}
-                    </p>
-                    {(item.quantity ?? 1) > 1 && (
-                      <p className="text-sm text-zinc-500">
-                        {formatPrice(item.priceAtPurchase)} each
-                      </p>
-                    )}
-                  </div>
-                </div>
-              ))}
+                ),
+              )}
             </div>
           </div>
         </div>

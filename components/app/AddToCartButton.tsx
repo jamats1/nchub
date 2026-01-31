@@ -59,7 +59,10 @@ export function AddToCartButton({
   // Not in cart - show Add to Basket button
   if (quantityInCart === 0) {
     return (
-      <Button onClick={handleAdd} className={cn("min-h-[44px] h-11 w-full touch-manipulation", className)}>
+      <Button
+        onClick={handleAdd}
+        className={cn("min-h-[44px] h-11 w-full touch-manipulation", className)}
+      >
         <ShoppingBag className="mr-2 h-4 w-4" />
         Add to Basket
       </Button>

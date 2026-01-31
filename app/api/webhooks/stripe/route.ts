@@ -1,8 +1,8 @@
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
-import { client, writeClient } from "@/sanity/lib/client";
 import { ORDER_BY_STRIPE_PAYMENT_ID_QUERY } from "@/lib/sanity/queries/orders";
+import { client, writeClient } from "@/sanity/lib/client";
 
 if (!process.env.STRIPE_SECRET_KEY) {
   throw new Error("STRIPE_SECRET_KEY is not defined");
@@ -26,7 +26,7 @@ export async function POST(req: Request) {
   if (!signature) {
     return NextResponse.json(
       { error: "Missing stripe-signature header" },
-      { status: 400 }
+      { status: 400 },
     );
   }
 
@@ -39,7 +39,7 @@ export async function POST(req: Request) {
     console.error("Webhook signature verification failed:", message);
     return NextResponse.json(
       { error: `Webhook Error: ${message}` },
-      { status: 400 }
+      { status: 400 },
     );
   }
 
@@ -68,7 +68,7 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
 
     if (existingOrder) {
       console.log(
-        `Webhook already processed for payment ${stripePaymentId}, skipping`
+        `Webhook already processed for payment ${stripePaymentId}, skipping`,
       );
       return;
     }
@@ -149,7 +149,7 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
       .reduce(
         (tx, productId, i) =>
           tx.patch(productId, (p) => p.dec({ stock: quantities[i] })),
-        writeClient.transaction()
+        writeClient.transaction(),
       )
       .commit();
 

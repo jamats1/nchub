@@ -1,4 +1,5 @@
 {
+  "overloadClientMethods": false,
   "path": [
     "./lib/sanity/queries/**/*.ts",
     "./lib/actions/**/*.ts",

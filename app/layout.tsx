@@ -21,7 +21,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "NCHUB | Shop Anything",
-  description: "NCHUB — Your AI-powered ecommerce store. Shop anything with intelligent search, real-time stock, and helpful assistants.",
+  description:
+    "NCHUB — Your AI-powered ecommerce store. Shop anything with intelligent search, real-time stock, and helpful assistants.",
 };
 
 export const viewport: Viewport = {
